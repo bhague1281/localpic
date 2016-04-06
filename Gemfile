@@ -20,6 +20,17 @@ gem 'puma'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+gem 'activerecord-postgis-adapter'
+gem 'active_model_serializers'
+gem 'refile', require: ['refile/rails', 'refile/image_processing']
+gem 'aws-sdk'
+gem 'aws-sdk-v1'
+gem 'mini_magick', '~> 3.7.0'
+
+gem 'sidekiq'
+gem 'ohm'
+gem 'ohm-contrib'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

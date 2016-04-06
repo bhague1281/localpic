@@ -24,6 +24,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_model_serializers (0.9.5)
+      activemodel (>= 3.2)
     activejob (5.0.0.beta3)
       activesupport (= 5.0.0.beta3)
       globalid (>= 0.3.6)
@@ -33,21 +35,37 @@ GEM
       activemodel (= 5.0.0.beta3)
       activesupport (= 5.0.0.beta3)
       arel (~> 7.0)
+    activerecord-postgis-adapter (0.6.5)
+      rgeo-activerecord (~> 0.5.0)
     activesupport (5.0.0.beta3)
       concurrent-ruby (~> 1.0)
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.0.0)
+    aws-sdk (2.2.32)
+      aws-sdk-resources (= 2.2.32)
+    aws-sdk-core (2.2.32)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.2.32)
+      aws-sdk-core (= 2.2.32)
+    aws-sdk-v1 (1.66.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     builder (3.2.2)
     byebug (8.2.2)
     concurrent-ruby (1.0.1)
+    connection_pool (2.2.0)
     erubis (2.7.0)
     ffi (1.9.10)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hiredis (0.6.1)
     i18n (0.7.0)
+    jmespath (1.2.4)
+      json_pure (>= 1.8.1)
     json (1.8.3)
+    json_pure (1.8.3)
     listen (3.0.6)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9.7)
@@ -59,11 +77,22 @@ GEM
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
+    mini_magick (3.7.0)
+      subexec (~> 0.2.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    msgpack (0.5.12)
+    nido (1.0.0)
     nio4r (1.2.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    ohm (2.3.0)
+      msgpack (~> 0.5.0)
+      nido
+      redic (~> 1.5.0)
+      stal
+    ohm-contrib (2.2.0)
+      ohm (~> 2.2)
     pg (0.18.4)
     puma (3.3.0)
     rack (2.0.0.alpha)
@@ -100,6 +129,19 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    redic (1.5.0)
+      hiredis
+    redis (3.2.2)
+    refile (0.2.5)
+    rgeo (0.5.3)
+    rgeo-activerecord (0.5.0)
+      activerecord (>= 3.0.3)
+      arel (>= 2.0.6)
+      rgeo (>= 0.3.20)
+    sidekiq (4.1.1)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      redis (~> 3.2, >= 3.2.1)
     spring (1.6.4)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
@@ -111,6 +153,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stal (0.1.0)
+      redic
+    subexec (0.2.3)
     thor (0.19.1)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
@@ -123,11 +168,20 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
+  activerecord-postgis-adapter
+  aws-sdk
+  aws-sdk-v1
   byebug
   listen (~> 3.0.5)
+  mini_magick (~> 3.7.0)
+  ohm
+  ohm-contrib
   pg (~> 0.18)
   puma
   rails (>= 5.0.0.beta3, < 5.1)
+  refile
+  sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
