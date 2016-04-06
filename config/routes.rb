@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      get 'pictures/index'
-      get 'pictures/show'
-      get 'pictures/create'
-      get 'pictures/update'
-      get 'pictures/delete'
+      resources :pictures
     end
   end
 
