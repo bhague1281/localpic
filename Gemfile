@@ -20,7 +20,7 @@ gem 'puma'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
-gem 'activerecord-postgis-adapter'
+gem 'activerecord-postgis-adapter', '~> 4.0.0.beta'
 gem 'active_model_serializers'
 gem 'refile', require: ['refile/rails', 'refile/image_processing']
 gem 'aws-sdk'
